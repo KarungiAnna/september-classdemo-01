@@ -1,0 +1,13 @@
+name: Print sentence on all OS
+
+on: [push]
+
+jobs:
+  say-hello:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+      - name: Print a sentence
+        run: echo "Hello from ${{ matrix.os }}!"
